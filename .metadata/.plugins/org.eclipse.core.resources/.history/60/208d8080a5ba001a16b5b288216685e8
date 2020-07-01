@@ -1,0 +1,13 @@
+package ex05.collection;
+
+import java.util.List;
+import java.util.Map;
+
+public class Customer {
+	
+	//멤버변수 컬렉션
+	private List<String> lists;
+	private List<MemberVO> vo;
+	private Map<String, Object> maps;
+	
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="ex01.SpringTest"/>
+<fullyQualifiedTypeName name="ex02.construct.Hotel"/>
+<fullyQualifiedTypeName name="ex02.construct.Chef"/>
+<fullyQualifiedTypeName name="ex03.setter.DataBaseDev"/>
+<fullyQualifiedTypeName name="ex03.setter.MemberDAO"/>
+<fullyQualifiedTypeName name="ex04.quiz.IBattery"/>
+<fullyQualifiedTypeName name="ex04.quiz.Airplane"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="ex05.collection.MemberVO"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
+<fullyQualifiedTypeName name="ex06.autowired.Printer"/>
+</qualifiedTypeNameHistroy>

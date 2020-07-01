@@ -1,0 +1,13 @@
+package ex03.setter;
+
+public class MemberDAO {
+
+	private DataBaseDev datasource;
+
+	public void setDatasource(DataBaseDev datasource) {
+		this.datasource = datasource;
+	}
+	
+	
+	
+}

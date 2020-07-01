@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+
+	<bean id = "test" class = "ex01.SpringTest"  scope = "prototype"/>
+	
+	<!-- 호텔객체, 쉐프객체 -->
+	<bean id = "chef" class = "ex02.construct.Chef"/>
+	<!-- 생성자 주입 -->
+	<bean id = "hotel" class = "ex02.construct.Hotel">
+		<constructor-arg ref = "chef"></constructor-arg>
+	</bean>
+
+	<!-- 세터주입 -->
+	<bean id = "dbDev" class = "ex03.setter.DatabaseDev">
+		<property name="url"  value = "jdbc:oracle:thin:@localhost:1521/XEPDB1"/>
+		<property name="uid"  value = "spring"/>
+		<property name="upw"  value = "spring"/>
+	</bean>
+	
+	<!-- 세터주입(객체) : MemberDAO -->
+	<bean id = "memberDAO" class = "ex03.setter.MemberDAO">
+		<property name="datasource" ref ="dbDev"></property>
+	</bean>
+	
+	<!-- quiz04 -->
+	<bean id = "battery1" class = "ex04.quiz.Battery1"></bean>
+	<bean id = "battery2" class = "ex04.quiz.Battery2"></bean>
+	
+	<bean id = "car" class = "ex04.quiz.Car">
+		<constructor-arg ref = "battery2"></constructor-arg>
+	</bean>
+	
+	<bean id = "airplane" class = "ex04.quiz.Airplane">
+		<constructor-arg  ref = "battery1"></constructor-arg>
+	</bean>
+	
+	
+
+</beans>
+
+
+
+
+
+
+
+
+

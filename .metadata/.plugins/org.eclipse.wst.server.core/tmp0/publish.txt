@@ -1,0 +1,5 @@
+#Tomcat publish data
+#Wed Jul 01 17:43:20 KST 2020
+org.eclipse.jst.jee.server\:StringTest=D\:\\course\\spring\\apache-tomcat-9.0.35\\wtpwebapps\\StringTest
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\KGITBANK\\.m2\\repository\\org\\springframework\\spring-web\\5.0.7.RELEASE\\spring-web-5.0.7.RELEASE.jar=D\:\\course\\spring\\apache-tomcat-9.0.35\\wtpwebapps\\StringTest\\WEB-INF\\lib\\spring-web-5.0.7.RELEASE.jar
+org.eclipse.jst.jee.server\:SpringMake=D\:\\course\\spring\\apache-tomcat-9.0.35\\wtpwebapps\\SpringMake

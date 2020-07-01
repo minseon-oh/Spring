@@ -1,0 +1,10 @@
+package ex04.quiz;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		//car,airplane빈을 생성하고, 의존성주입
+		//각 객체안에있는 배터리를 자바클래스에서출력
+	}
+
+}

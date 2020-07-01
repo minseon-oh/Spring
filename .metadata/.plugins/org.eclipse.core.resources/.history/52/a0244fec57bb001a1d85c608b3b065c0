@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+
+	<!-- 컬렉션 setter주입 -->
+	<bean id="cus" class="ex05.collection.Customer">
+		<!-- 컬렉션 String타입 -->
+		<property name="lsits">
+			<list>
+				<value>홍길동</value>
+				<value>고길동</value>
+				<value>김길동</value>
+			</list>
+		</property>
+		
+		<!-- 컬렉션 list객체타입 -->
+		<property name="vo">
+			<list>
+				<bean class="ex05.collection.MemberVO">
+					<property name="name" value="박길동"/>
+					<property name="id" value="kkk123"/>
+				</bean>
+			</list>
+		</property>
+		
+		<!-- 컬렉션 map타입 -->
+		<property name="maps">
+			<map>
+				<entry key="k1" value="엄길동"/>
+				<entry key="k2">
+					<bean class="ex05.collection.MemberVO">
+						<property name="name" value="박길동"/>
+						<property name="id" value="kkk123"/>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>
