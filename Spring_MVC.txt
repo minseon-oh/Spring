@@ -1,0 +1,159 @@
+
+
+1111111111111111111111111111111111111111. pom.xml   
+<!-- 1. java-version : 자바 버전, org.springframework-version : 메이븐 리포지토리 버전 선언 -->
+<properties>
+   <java-version>1.8</java-version>
+   <org.springframework-version>5.0.7.</org.springframework-version>
+</properties>
+
+
+
+222222222222222222222222222.pom.xml
+
+<!-- 스프링 라이브러리들을 다운로드(Manven repository) -->
+
+<dependencies>
+   <!-- 스프링코어 -->
+   <dependency>
+       <groupId>org.springframework</groupId>
+       <artifactId>spring-context</artifactId>
+       <version>${org.springframework-version}</version> <!--라이브러리의 버전을  ${}을통해 org.springframework-version 에서 가져온다-->
+  </dependency>
+   
+   <!-- 스프링 web mvc 패턴 -->
+ <dependency>
+       <groupId>org.springframework</groupId>
+       <artifactId>spring-webmvc</artifactId>
+       <version>${org.springframework-version}</version>
+   </dependency>
+</dependencies>
+ 
+ 
+  <!-- 메이븐 빌드 툴 -->
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+        <configuration>
+          <warSourceDirectory>webapp</warSourceDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+
+
+
+333333333333333333333. webapp/WEB-INF/config/views/web.xml
+
+ <!-- 3. 스프링 디스패처 서블릿 등록(생성) -->
+<servlet>
+<!--디스패쳐 서블릿의 이름 등록 ( appServlet 이 이름이됨).-->
+     <servlet-name>appServlet</servlet-name>
+     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+</servlet>
+
+
+
+444444444444444444. webapp/WEB-INF/config/views/web.xml
+<!-- MVC모델 설정을 지정하는 파일을 실행하는 코드-->
+<init-param>
+
+<!--설정 파일의 경로를 직접 지정하기 위해서 입력하는 코드
+	(contextConfigLocation 도 동일하게 입력해주어야함.)-->
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+           /WEB-INF/config/spring-servlet.xml <--설정 파일의 주소-->
+           /WEB-INF/config/spring-servlet2.xml
+        </param-value>
+     </init-param>
+
+
+
+
+555555555555555555555. webapp/WEB-INF/views/web.xml
+ <!--모든 서블릿에서 공통으로 참조할 수 있도록, 전역스프링 설정 파일 선언. 
+4번과 동일한 태그이지만 안에 주소값( value)이 다름(DB관련된 내용들만)  -->
+  <context-param>
+     <param-name>contextConfigLocation</param-name>
+     <param-value>/WEB-INF/config/root-servlet.xml</param-value>
+  </context-param>
+
+
+기타-------------------------------
+ webapp/WEB-INF/views/web.xml
+
+<!-- 모든요청이  appServlet을 통해서 실행 -->
+ <servlet-mapping>
+     <servlet-name>appServlet</servlet-name> 
+     <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+---------------------설정 파일(DispatcherServlet을 제외한  MVC 설정) 파일 : webapp/WEB-INF/config/spring-servlet.xml
+
+
+<!-- HandleMapping, HandlerAdapter 를 실행시켜주고, mvc의 필요한 어노테이션을 활성화 -->
+<!--어노테이션의 예 : @Autowired(required = false)    @Qualifier("doc1")-->
+   <mvc:annotation-driven/>
+   
+   <!-- 해당 패키지 경로를 읽어서 *어노테이션이 붙어있는 클래스* 들을 bean으로 생성 -->
+   <context:component-scan base-package="com.simple.controller"/>
+   
+
+-----------------------------------<!--밑의 코드부터는 메인컨트롤러를 작성 후 실행하는 코드-->
+   <!-- 뷰 리졸버 -->
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+      <property name="prefix" value="/WEB-INF/views/" /> 
+      <property name="suffix" value=".jsp" />
+   </bean>
+   
+   <!-- 정적자원맵핑 js, html, css, img 파일들에 대해서 컨트롤러를 거치지 않고 화면을 보여지게 처리 -->test.html을 참조
+   <mvc:resources location="/resource/" mapping="/resource/**"/>
+
+
+===========================================================================================
+ 
+
+
+//////////////////////////////////메인 컨트롤러 파일 작성 java Resources / com.simple.controller.MainController
+@Controller
+public class MainController {
+   
+   @RequestMapping("/") 
+   public String home() {
+      return "home";
+   }
+}
+
+
+//////////////////////////////////리소스 (컨트롤러를 거치지 않고 바로 응답할 수 있도록 처리)
+<!--test.html파일입니다.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	이화면이 궁금하다.
+</body>
+
+</html>
+
