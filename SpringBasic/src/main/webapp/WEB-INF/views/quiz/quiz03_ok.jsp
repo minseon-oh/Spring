@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>${id}님 회원가입을 축하합니다</h2>
+	<h2> [${id }]님 회원가입 축하드립니다.</h2>
 </body>
 </html>

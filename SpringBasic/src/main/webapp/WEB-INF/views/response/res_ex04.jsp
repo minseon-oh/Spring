@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	넘어온값: ${id}
+ModelAttr로 전달된 값 : ${id }
 </body>
 </html>

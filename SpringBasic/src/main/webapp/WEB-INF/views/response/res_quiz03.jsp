@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>로그인 실패! ${id}는 회원이 아닙니다 ㅠㅠ</h2>
+<h2>로그인 실패!! [${id }] 님은 회원이 아닙니다</h2>
 </body>
 </html>

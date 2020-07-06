@@ -16,12 +16,13 @@
 	4.아니라면 req_quiz01_no.jsp로 화면이동 
 	--%>
 
-	<form action="login" method="post">
+	<form action="login" method="post" name = "regForm">
 		ID:<input type="text" name="id"><br>
 		PW:<input type="password" name="pw"><br>
-		<input type="submit" value="로그인" >
+		<input type="submit" value="로그인" onclick = "check">
 	</form>
 	
+
 	
 </body>
 </html>

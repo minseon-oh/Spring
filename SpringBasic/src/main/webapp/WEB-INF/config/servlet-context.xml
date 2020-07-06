@@ -7,21 +7,26 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- 핸들러 어댑터, 핸드러 맵핑 -->
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	
+	<!-- 핸들러어뎁터, 핸들러 맵핑 -->
 	<annotation-driven />
 
-	<!-- 정적자원 맵핑  resources폴더 안에 파일은 컨트롤러를 실행하지 않고 곧바로 실행 -->
+	<!-- 정적자원맵핑 - resource폴더 안에 파일은 컨트롤러를 실행하지 않고 곧바로 실행 -->
 	<resources mapping="/resources/**" location="/resources/" />
-
-	<!-- 뷰 리졸버 - 뷰 합성기 -->
+	<!-- 뷰리졸버 = 뷰합성기 -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	<!-- 해당 패키지를 읽어서 @Controlloer가 붙어 있는 클래스를 bean으로 생성 -->
+	<context:component-scan base-package="com.simple.basic" />
+	<context:component-scan base-package="com.simple.service" />
+	<context:component-scan base-package="com.simple.dao" />
 	
-	<!-- 해당 패키지를 읽어서 @Controller가 붙어있는 클래스를 bean으로 생성 -->
-	<context:component-scan base-package="com.simple.controller" />
-	
-	
+	<!-- 1st 서비스 객체를 빈으로 생성 -->
+	<!-- <beans:bean id = "scoreService" class = "com.simple.service.ScoreServiceImpl" /> -->
 	
 </beans:beans>

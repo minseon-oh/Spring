@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	넘어온값: ${servertime} <br>
-	넘어온값: ${name} <br>
+	넘어온 값 : ${servertime }<br>
+ 	넘어온 값 : ${name }<br>
 
 </body>
 </html>

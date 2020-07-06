@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>결과페이지라능</h2>
+
+	<h2>결과 페이지......</h2>
+
 </body>
 </html>

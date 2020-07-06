@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	넘어온값: ${info.id}<br>
-	넘어온값: ${info.name}<br>
+
+	ModelAttr객체를 통해 넘어온 값 : ${info.id } <br>
+	ModelAttr객체를 통해 넘어온 값 : ${info.name }
+	
 </body>
 </html>
